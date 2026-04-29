@@ -7,6 +7,7 @@
     <meta name="description" content="Revolut — The Shared Pouch - Concept Feature Design Case Study by Beatriz Marçal">
     <title>Revolut — The Shared Pouch | Beatriz Marçal</title>
     <link rel="stylesheet" href="main.css">
+    <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));</script>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,23 +38,22 @@
     <!-- Project Detail -->
     <article class="project-detail">
         <div class="project-detail-grid">
-            <div class="project-detail-container fade-in-up">
+            <div class="project-detail-container">
                 <header class="project-header">
                     <h1 class="hero-title">Revolut — The Shared Pouch</h1>
-                    <p class="caption">Product Design • 3 designers • Academic project • iOS — Figma</p>
+                    <p class="caption">Product Design • 3 designers • Academic project • Mobile app</p>
                 </header>
+                <figure class="project-image">
+                    <img src="Project_images/project4/revolut-cover.png" alt="Revolut cover image" loading="lazy">
+                </figure>
+
 
                 <section class="project-section">
                     <h1 class="caption">Context</h1>
-                    <p class="hero-title">A joint account without the commitment of a joint account. The Shared Pouch is a concept feature for Revolut that lets any group of people — friends, couples, colleagues — open a shared money pool, contribute in any currency, and spend from it directly. No one needs to front the money. No one needs to ask for approval. Everyone can see every transaction in real time.</p>
+                    <p class="hero-title">Revolut handles individual spending better than almost anyone, but the moment users need to share money with a group, the experience breaks down. They leave the app. The Shared Pouch is a concept feature that changes that: a shared pool, a virtual card, no upfront payments, no manual settling, no legal complexity. Built natively into Revolut.</p>
                 </section>
 
                 <section class="project-section">
-                    <h1 class="caption">The idea</h1>
-                    <h2 class="subtitle">A shared account for life's in-between moments</h2>
-                    <p>Traditional joint accounts are a big commitment — full bank onboarding for everyone, designed for long-term financial relationships. But most shared money situations aren't long-term. They're a group trip. A couple moving in together for the first time. Friends splitting a renovation.</p>
-                    <p>The Shared Pouch sits between "split it after" and "open a joint account." Everyone contributes to a common pot, gets a virtual card, and spends directly — no approval needed, no one fronting cash. Multiple currencies feed the same balance. When the shared moment ends, any remaining money is automatically returned to each contributor.</p>
-                    
                     <div class="card-grid-3">
                         <div class="card">
                             <h3 class="caption">Group travel</h3>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="card">
                             <h3 class="caption">Moving in together</h3>
-                            <p class="text-2">A couple creates a Pouch for shared flat costs — furniture, deposits, utilities — without opening a formal joint account.</p>
+                            <p class="text-2">A couple creates a Pouch for shared flat costs, furniture, deposits, utilities, without opening a formal joint account.</p>
                         </div>
                         <div class="card">
                             <h3 class="caption">Shared project</h3>
@@ -69,6 +69,23 @@
                         </div>
                     </div>
                 </section>
+               
+                <div class="stacking-images">
+                    <ul style="--images: 2;">
+                        <li>
+                            <div>
+                                <img src="Project_images/project4/context1.png" alt="Revolut context 1" loading="lazy">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="Project_images/project4/context2.png" alt="Revolut context 2" loading="lazy">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+              
+
 
                 <section class="project-section">
                     <h1 class="caption">Market opportunity</h1>
@@ -84,32 +101,53 @@
                         </div>
                         <div class="card">
                             <h3 class="hero-title">20.5M</h3>
-                            <p class="text-2">MAU across Splitwise, Wise & HyperJar — filling this gap today</p>
+                            <p class="text-2">MAU Total addressable market for shared expense apps</p>
                         </div>
                     </div>
-                    <p>Revolut already handles individual multi-currency spending better than almost anyone. But the moment users need to share money with a group, they leave the app. The tools they reach for are workarounds — none of them move money, none of them give everyone a card. The Shared Pouch proposes that Revolut owns this space natively, rather than letting 20 million users manage it elsewhere.</p>
+                    <h1 class="caption">Research</h1>
+                    <h2 class="subtitle">The problem with shared finance tools</h2>
+                    <p>Group finance tools are built for specific niches, not for the messiness of everyday shared expenses. Users want a simpler way to spend directly from a shared pool, without the friction of traditional banking or the awkwardness of constant manual settling.</p>
+                    <h2 class="subtitle">Mapping the gap</h2>
+                    <p>Simple tools like Splitwise force one person to pay upfront and manually chase others. Shared accounts solve the pooling problem but are legally complex to open and dissolve. Neither fits daily use. We mapped every shared finance tool against one question: does it let a group spend directly from a shared pool without friction? None of them did.</p>
                 </section>
+
+                <figure class="project-image-small">
+                    <img src="Project_images/project4/revolut-1.svg" alt="Design system foundations" class="svg-invert-light" loading="lazy">
+                </figure>
 
                 <section class="project-section">
-                    <h1 class="caption">Problem</h1>
-                    <h2 class="subtitle">Shared money is full of friction — before, during, and after</h2>
+                    <h1 class="caption">Personas</h1>
+                    <h2 class="subtitle">Who will be using the Pouch?</h2>
+                    <p>From our research (interviews and desk research) five distinct user types emerged, each stuck in the same gap for different reasons:</p>
                 </section>
+                <figure class="project-image">
+                    <img src="Project_images/project4/revolut-2.png" alt="Personas" loading="lazy">
+                </figure>
+                
 
+                <section class="project-section">
+                    <h1 class="caption">Problem statement</h1>
+                    <h2 class="subtitle">Shared money is full of friction, before, during, and after</h2>
+                    <p>Current group finance tools are too limited for the full range of shared-expense situations, either too simple and trust-reliant, or too legally complex for casual use. No tool owns the complete loop: pool, spend, and settle.</p>
+                </section>
+                <figure class="project-image">
+                    <img src="Project_images/project4/revolut-3.png" alt="Personas" loading="lazy">
+                </figure>
                 <div class="card-grid">
                     <div class="card">
                         <h3 class="caption">Current pain points</h3>
                         <ul>
                             <li class="text-2">Someone always fronts the money</li>
                             <li class="text-2">Tracking across currencies is manual</li>
-                            <li class="text-2">Settlement is delayed and awkward</li>
+                            <li class="text-2">Settlement can be delayed and become awkward</li>
                             <li class="text-2">Non-Revolut users are excluded</li>
                             <li class="text-2">No tool owns the full loop: pool, spend, settle</li>
                         </ul>
                     </div>
                     <div class="card">
-                        <h3 class="caption">What the Pouch solves</h3>
+                        <h3 class="caption">What does the Pouch need to be?</h3>
                         <ul>
-                            <li class="text-2">Communal pool — no one fronts anything</li>
+                            <li class="text-2">Communal pool, no one fronts anything</li>
                             <li class="text-2">Spend directly from the shared account</li>
                             <li class="text-2">Guests join without a full Revolut account</li>
                             <li class="text-2">Multi-currency contributions to one pot</li>
@@ -119,50 +157,61 @@
                 </div>
 
                 <section class="project-section">
-                    <h1 class="caption">Process</h1>
-                    <h2 class="subtitle">From insight to feature architecture</h2>
-                    <p>Benchmarking covered both the Revolut app and the tools currently filling this gap. The goal was to understand not just what was missing, but why existing solutions weren't enough — Splitwise tracks debt but doesn't move money, Wise moves money but isn't built for groups, HyperJar pools money but lacks flexibility for international use.</p>
-                    <p>Research mapped the customer journey across different use cases and identified where the friction was highest. The key finding: the problem isn't settling up at the end — it's the moment of spending, when someone has to decide who pays, who owes what, and how to coordinate in real time.</p>
-                    <div class="card-grid-3">
-                        <div class="card">
-                            <h3 class="caption">01 Benchmarking</h3>
-                            <p class="text-2">Analyzing Revolut and existing shared expense tools</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="caption">02 Research</h3>
-                            <p class="text-2">Understanding real user behavioral patterns</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="caption">03 Feature mapping</h3>
-                            <p class="text-2">Translating insights into user journeys</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="caption">04 UI & prototype</h3>
-                            <p class="text-2">Designing core screens and flows</p>
-                        </div>
-                    </div>
+                    <h1 class="caption">User flows</h1>
+                    <h2 class="subtitle">Managing a Shared Pouch</h2>
+                    <p>Anchors and managers have full control, tracking all spending, managing contributions, and controlling access to funds. This allows them to keep everything organised and cover shared expenses, even when not everyone has contributed yet.</p>
+                    <h2 class="subtitle">Joining and Using the Pouch</h2>
+                    <p>Users can join with or without a Revolut account, contribute in their preferred currency, and spend via the shared card when enabled. Participation stays flexible while ensuring no one gets left out.</p>  
                 </section>
+                <figure class="project-image">
+                    <img src="Project_images/project4/revolut-4.png" alt="Design process and wireframes" loading="lazy">
+                </figure>
 
                 <section class="project-section">
-                    <h2 class="subtitle">AI in the process — Figma Make</h2>
-                    <p>Before committing to any design direction, the team used AI — specifically Figma Make — to rapidly visualize the core concept. A structured prompt defined the feature architecture, the user flows, and Revolut's design language. The AI generated initial mockups that made the idea tangible without spending time in Figma. This wasn't about generating final design — it was about pressure-testing the concept visually, fast. Think of it as a sketchpad that speaks Figma.</p>
-                    <p>The actual design work came after. To ensure the feature felt native to Revolut, I studied the app directly — creating a group chat, exploring the existing shared expenses UI, and mapping the patterns Revolut already uses. The final mockups were built in Figma from scratch, mixing the visual language of Revolut's personal account with the group patterns already in the product. The goal: a feature that a Revolut user would open and immediately feel at home in.</p>
+                    <h1 class="caption">Design decisions</h1>
+                    <h2 class="subtitle">A tiered identity system</h2>
+                    <p>The biggest constraint was regulatory: you can't open a joint bank account for a group without full Know Your Customer for each person. The solution was decoupling legal ownership from spending rights while ensuring Anti Money Laundering compliance. One fully verified Revolut user, the Anchor, owns the pot legally. Guests get temporary spending rights via virtual cards without full bank onboarding. A Shadow Ledger tracks each person's contribution in real time, ensuring accountability without requiring everyone to be a full Revolut customer.</p>
                 </section>
 
-                <section class="project-section">
-                    <h2 class="subtitle">Design decision — the Anchor model</h2>
-                    <p>The biggest constraint was regulatory: you can't open a joint bank account for a group without full KYC for each person. The solution was decoupling legal ownership from spending rights. One fully verified Revolut user — the Anchor — owns the pot legally. Guests get temporary spending rights via virtual cards without full bank onboarding. A Shadow Ledger tracks each person's contribution in real time, ensuring accountability without requiring everyone to be a full Revolut customer.</p>
-                </section>
+                <div class="stacking-images">
+                    <ul style="--images: 4;">
+                        <li>
+                            <div>
+                                <img src="Project_images/project4/revolut-5.png" alt="Design process and wireframes" loading="lazy">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="Project_images/project4/revolut-6.png" alt="Final prototype showcase" loading="lazy">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="Project_images/project4/revolut-7.png" alt="Design process and wireframes" loading="lazy">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="Project_images/project4/revolut-8.png" alt="Final prototype showcase" loading="lazy">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
                 <section class="project-section">
-                    <h2 class="subtitle">Design decision — UI language</h2>
-                    <p>The Pouch deliberately mirrors Revolut's personal account layout — the same balance display, transaction feed, and quick-action bar. The goal was for the feature to feel like a natural extension of the app, not a separate product. When something new looks like something familiar, the learning curve disappears.</p>
+                    <h2 class="subtitle">UI language</h2>
+                    <p>The Pouch deliberately mirrors Revolut's personal account layout, the same balance display, transaction feed, and quick-action bar. The goal was for the feature to feel like a natural extension of the app, not a separate product. When something new looks like something familiar, the learning curve disappears.</p>
                 </section>
+
+                <figure class="project-image">
+                    <img src="Project_images/project4/revolut-9.png" alt="Design system components" loading="lazy">
+                </figure>
+
 
                 <section class="project-section">
                     <h1 class="caption">My contribution</h1>
                     <h2 class="subtitle">Feature mapping, flow design, and UI</h2>
-                    <p>My role covered three areas: the initial feature mapping and flow architecture — translating the concept into a structured user journey; the benchmarking of Revolut's existing app to identify where the Pouch should live and how it should behave; and the UI design for the core screens outside the main dashboard — transaction detail, split editing, fund request, and the guest onboarding flow.</p>
+                    <p>My role covered three areas: the initial feature mapping and flow architecture, translating the concept into a structured user journey; the benchmarking of Revolut's existing app to identify where the Pouch should live and how it should behave; and the UI design for the core screens outside the main dashboard, including transaction detail, split editing, fund request, and the guest onboarding flow.</p>
                     <div class="chips-container">
                         <span class="chip chip-yellow">Feature mapping & flows</span>
                         <span class="chip chip-blue">Revolut app benchmarking</span>

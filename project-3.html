@@ -7,6 +7,7 @@
     <meta name="description" content="Suprafood — Building a design system from scratch - Product Design Case Study by Beatriz Marçal">
     <title>Suprafood — Design System | Beatriz Marçal</title>
     <link rel="stylesheet" href="main.css">
+    <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));</script>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,7 +38,7 @@
     <!-- Project Detail -->
     <article class="project-detail">
         <div class="project-detail-grid">
-            <div class="project-detail-container fade-in-up">
+            <div class="project-detail-container">
                 <header class="project-header">
                     <h1 class="hero-title">Suprafood — Building a design system from scratch</h1>
                     <p class="caption">Solo UI Designer • Academic project • Figma</p>
@@ -70,17 +71,16 @@
                         <span class="chip chip-purple">Light & dark mode</span>
                     </div>
                 </section>
-            </div>
 
-            <div class="image-grid-2col">
-                <figure>
-                    <img src="Project_images/project3/3.png" alt="Design process and wireframes" loading="lazy">
-                </figure>
-                <figure>
-                    <img src="Project_images/project3/7.png" alt="Final prototype showcase" loading="lazy">
-                </figure>
-            </div>
-            <section class="project-section">
+                <div class="image-grid-2col">
+                    <figure>
+                        <img src="Project_images/project3/3.png" alt="Design process and wireframes" loading="lazy">
+                    </figure>
+                    <figure>
+                        <img src="Project_images/project3/7.png" alt="Final prototype showcase" loading="lazy">
+                    </figure>
+                </div>
+                <section class="project-section">
                 <h1 class="caption">Process</h1>
                 <h2 class="subtitle">From Structure to System</h2>
                 <p>The process started analog, sketching and low-fidelity wireframing to define the information architecture and purchase flow before committing to any visual decisions. This early stage was deliberately rough: the goal was to solve structure, not aesthetics. AI was used here as a thinking tool to pressure-test layout directions and explore structural alternatives quickly, not to generate design output.</p>
@@ -105,51 +105,49 @@
                         <h3 class="caption">05 Prototype</h3>
                         <p>Interactive flows with full theming support.</p>
                     </div>
-                </div>
-            </section>
+                    </div>
+                </section>
 
+                <section class="project-section">
+                    <h1 class="caption">Technical depth</h1>
+                    <h2 class="subtitle">An evolving design system</h2>
+                    <p>The system was developed alongside early exploration, with typography, color tokens, spacing, and component variants defined upfront to guide decisions.</p>
+                    <p><strong>Foundations</strong> — Type scale and styles, color tokens, spacing system, Figma variables</p>
+                    <p><strong>Components</strong> — Buttons, inputs, tags, navigation, product cards, cart and checkout</p>
+                    <p><strong>Theming</strong> — Light and dark mode, variable-driven, consistent across screens</p>
+                    <p><strong>Prototype</strong> — Interactive flows, full purchase journey, component states and variants</p>
+                    <p>Building the system before the screens introduces an early constraint: structure is defined ahead of visuals, supporting consistency and scalability. At the same time, the system evolved with the brand—components were refined, extended, and adjusted as the product took shape.</p>
+                </section>
 
-            <section class="project-section">
-                <h1 class="caption">Technical depth</h1>
-                <h2 class="subtitle">An evolving design system</h2>
-                <p>The system was developed alongside early exploration, with typography, color tokens, spacing, and component variants defined upfront to guide decisions.</p>
-                <p><strong>Foundations</strong> — Type scale and styles, color tokens, spacing system, Figma variables</p>
-                <p><strong>Components</strong> — Buttons, inputs, tags, navigation, product cards, cart and checkout</p>
-                <p><strong>Theming</strong> — Light and dark mode, variable-driven, consistent across screens</p>
-                <p><strong>Prototype</strong> — Interactive flows, full purchase journey, component states and variants</p>
-                <p>Building the system before the screens introduces an early constraint: structure is defined ahead of visuals, supporting consistency and scalability. At the same time, the system evolved with the brand—components were refined, extended, and adjusted as the product took shape.</p>
-            </section>
+                <figure class="project-image">
+                    <img src="Project_images/project3/4.png" alt="Design system foundations" loading="lazy">
+                </figure>
 
-            <figure class="project-image">
-                <img src="Project_images/project3/4.png" alt="Design system foundations" loading="lazy">
-            </figure>
+                <figure class="project-image">
+                    <img src="Project_images/project3/5.png" alt="Design system components" loading="lazy">
+                </figure>
 
-            <figure class="project-image">
-                <img src="Project_images/project3/5.png" alt="Design system components" loading="lazy">
-            </figure>
+                <section class="project-section">
+                    <h1 class="subtitle">Outcome</h1>
+                    <h2 class="text-1">A fully prototyped, theme-ready e-commerce experience</h2>
+                    <p>The final deliverable is a complete desktop prototype — a science-backed supplement store with a coherent visual identity, a structured component library, and full light and dark mode support. Every screen is built from system components, which means any change to the system propagates consistently across the entire product. In a real product context, that's the difference between a design that scales and one that breaks the moment a second designer touches it.</p>
+                    <ul>
+                        <li>Full design system in Figma</li>
+                        <li>Light & dark mode</li>
+                        <li>Interactive prototype</li>
+                        <li>E-commerce purchase flow</li>
+                    </ul>
+                </section>
 
-            
-            <section class="project-section">
-                <h1 class="subtitle">Outcome</h1>
-                <h2 class="text-1">A fully prototyped, theme-ready e-commerce experience</h2>
-                <p>The final deliverable is a complete desktop prototype — a science-backed supplement store with a coherent visual identity, a structured component library, and full light and dark mode support. Every screen is built from system components, which means any change to the system propagates consistently across the entire product. In a real product context, that's the difference between a design that scales and one that breaks the moment a second designer touches it.</p>
-                <ul>
-                    <li>Full design system in Figma</li>
-                    <li>Light & dark mode</li>
-                    <li>Interactive prototype</li>
-                    <li>E-commerce purchase flow</li>
-                </ul>
-            </section>
-            
-            <figure class="project-image">
-                <img src="Project_images/project3/6.png" alt="Light and dark mode theming" loading="lazy">
-            </figure>
-            
-            <figure class="project-image">
-                <div class="image-link">
-                    <a href="Project_images/project3/Documentation.pdf" target="_blank" rel="noopener noreferrer" class="link-button">View Full Documentation →</a>
-                </div>
-            </figure>
+                <figure class="project-image">
+                    <img src="Project_images/project3/6.png" alt="Light and dark mode theming" loading="lazy">
+                </figure>
+
+                <figure class="project-image">
+                    <div class="image-link">
+                        <a href="Project_images/project3/Documentation.pdf" target="_blank" rel="noopener noreferrer" class="link-button">View Full Documentation →</a>
+                    </div>
+                </figure>
             </div>
         </div>
     </article>

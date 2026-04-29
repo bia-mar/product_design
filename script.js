@@ -1,7 +1,3 @@
-// ===========================
-// Mobile Navigation Toggle
-// ===========================
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===========================
@@ -13,16 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkIcon = document.querySelector('.dark-icon');
     const htmlElement = document.documentElement;
     
-    // Initialize theme
     function initTheme() {
-        // Check localStorage first
         const savedTheme = localStorage.getItem('theme');
         
         if (savedTheme) {
             htmlElement.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
         } else {
-            // Check system preference
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             const theme = prefersDark ? 'dark' : 'light';
             htmlElement.setAttribute('data-theme', theme);
@@ -30,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Update icon visibility
     function updateThemeIcon(theme) {
         if (theme === 'dark') {
             lightIcon.style.display = 'none';
@@ -41,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Toggle theme
     function toggleTheme() {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -51,13 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
         updateThemeIcon(newTheme);
     }
     
-    // Event listener
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
     
-    // Initialize on load
     initTheme();
+    
+    // ===========================
+    // Mobile Navigation
+    // ===========================
     
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -66,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             
-            // Animate hamburger menu
             const spans = navToggle.querySelectorAll('span');
             if (navMenu.classList.contains('active')) {
                 spans[0].style.transform = 'translateY(7px) rotate(45deg)';
@@ -79,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
                 navMenu.classList.remove('active');
@@ -103,43 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
             chip.addEventListener('click', function() {
                 const filter = this.getAttribute('data-filter');
                 
-                // Update active state
                 filterChips.forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Filter projects with smooth animation
                 projectCards.forEach(card => {
                     const categories = card.getAttribute('data-category');
                     const shouldShow = filter === 'all' || (categories && categories.includes(filter));
-                    
-                    if (shouldShow) {
-                        // Card should be visible
-                        if (card.classList.contains('hidden') || card.classList.contains('filtering-out')) {
-                            // Remove hidden and filtering-out, trigger fade-in animation
-                            card.classList.remove('hidden', 'filtering-out');
-                            // Trigger reflow to restart animation
-                            void card.offsetWidth;
-                            card.classList.add('filtering-in');
-                            
-                            // Remove filtering-in class after animation completes
-                            setTimeout(() => {
-                                card.classList.remove('filtering-in');
-                            }, 600);
-                        }
-                    } else {
-                        // Card should be hidden
-                        if (!card.classList.contains('hidden')) {
-                            // Start fade-out animation
-                            card.classList.remove('filtering-in');
-                            card.classList.add('filtering-out');
-                            
-                            // After animation completes, fully hide the card
-                            setTimeout(() => {
-                                card.classList.add('hidden');
-                                card.classList.remove('filtering-out');
-                            }, 500);
-                        }
-                    }
+                    card.classList.toggle('is-hidden', !shouldShow);
                 });
             });
         });
@@ -149,17 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Active Page Indicator
     // ===========================
     
-    // Get current page filename
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
-    // Update active nav link based on current page
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
         if (linkHref === currentPage || 
             (currentPage === '' && linkHref === 'index.html') ||
             (currentPage === 'index.html' && linkHref === 'index.html')) {
-            // Don't add active to external links (LinkedIn)
             if (!link.hasAttribute('target')) {
                 link.classList.add('active');
             }
@@ -178,17 +136,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Get the grid value from the button
                 const gridValue = this.getAttribute('data-grid-value');
-                
-                // Find the parent project card
                 const projectCard = this.closest('.project-card');
                 
                 if (projectCard && gridValue) {
-                    // Update the data-grid attribute on the project card
                     projectCard.setAttribute('data-grid', gridValue);
                     
-                    // Update active state for buttons in this card only
                     const siblingButtons = projectCard.querySelectorAll('.grid-btn');
                     siblingButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
@@ -212,10 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const buttons = gridControls.querySelectorAll('.grid-btn');
             const defaultValue = isMobile ? '2' : '4';
             
-            // Set default grid layout
             card.setAttribute('data-grid', defaultValue);
             
-            // Update active button state
             buttons.forEach(btn => {
                 const btnValue = btn.getAttribute('data-grid-value');
                 if (btnValue === defaultValue) {
@@ -227,10 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Set initial defaults on page load
     setResponsiveGridDefaults();
     
-    // Update on window resize (with debounce)
     let resizeTimeout;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimeout);
@@ -238,29 +187,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===========================
-    // Smooth Scroll-Triggered Animations
+    // Scroll-Triggered Fade Animations
     // ===========================
     
-    // Create Intersection Observer for fade-in animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                // Optional: stop observing after animation triggers
-                // observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0 });
 
-    // Observe all elements with fade-in-up class
-    const animatedElements = document.querySelectorAll('.fade-in-up');
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 });
