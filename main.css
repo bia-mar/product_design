@@ -61,7 +61,7 @@
 
     /* Stacking Images */
     --stack-height: 65vh;
-    --stack-offset: 1.5em;
+    --stack-offset: 1.5rem;
     --stack-gap: 4vw;
 
     /* Transitions */
@@ -561,7 +561,7 @@ ul, ol {
    =========================== */
 
 .project-detail {
-    padding: var(--space-3xl) 0 0 0;
+    padding: 7rem 0 0 0;
     flex: 1;
 }
 
@@ -735,21 +735,18 @@ ul, ol {
 .stacking-images ul {
     list-style: none;
     padding-left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--images, 2), var(--stack-height));
-    padding-bottom: calc(var(--images, 2) * var(--stack-offset));
-    margin-bottom: var(--stack-gap);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .stacking-images ul li {
     position: sticky;
-    top: 0;
+    top: 80px;
     padding-top: calc(var(--index) * var(--stack-offset));
 }
 
 .stacking-images ul li div {
-    height: var(--stack-height);
     display: flex;
     justify-content: center;
     align-items: center;
