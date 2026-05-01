@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
+    // ===========================
+    // Page Fade-In
+    // ===========================
+
+    requestAnimationFrame(function() {
+        document.body.classList.add('is-loaded');
+    });
+
     // ===========================
     // Theme Switching
     // ===========================
@@ -128,6 +136,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Grid Layout Controls
     // ===========================
     
+    const gridControlConfigs = [
+        { value: '1', label: '1 column', className: 'grid-btn grid-btn-mobile' },
+        { value: '2', label: '2 columns', className: 'grid-btn' },
+        { value: '3', label: '3 columns', className: 'grid-btn grid-btn-desktop' },
+        { value: '4', label: '4 columns', className: 'grid-btn grid-btn-desktop' },
+    ];
+
+    document.querySelectorAll('.grid-controls').forEach(container => {
+        if (container.children.length > 0) return;
+        gridControlConfigs.forEach(cfg => {
+            const btn = document.createElement('button');
+            btn.className = cfg.className;
+            btn.setAttribute('data-grid-value', cfg.value);
+            btn.setAttribute('aria-label', cfg.label);
+            const img = document.createElement('img');
+            img.src = 'Icons/grid ' + cfg.value + '.svg';
+            img.alt = cfg.label;
+            btn.appendChild(img);
+            container.appendChild(btn);
+        });
+    });
+
     const gridButtons = document.querySelectorAll('.grid-btn');
     
     if (gridButtons.length > 0) {
@@ -140,7 +170,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 const projectCard = this.closest('.project-card');
                 
                 if (projectCard && gridValue) {
-                    projectCard.setAttribute('data-grid', gridValue);
+                    const figures = projectCard.querySelectorAll('.project-images figure');
+                    figures.forEach(fig => {
+                        fig.style.opacity = '0';
+                        fig.style.transform = 'scale(0.97)';
+                    });
+
+                    setTimeout(() => {
+                        projectCard.setAttribute('data-grid', gridValue);
+                        figures.forEach(fig => {
+                            fig.style.opacity = '';
+                            fig.style.transform = '';
+                        });
+                    }, 200);
                     
                     const siblingButtons = projectCard.querySelectorAll('.grid-btn');
                     siblingButtons.forEach(btn => btn.classList.remove('active'));
@@ -150,6 +192,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ===========================
+    // Clickable Project Cards
+    // ===========================
+
+    document.querySelectorAll('.project-card[data-href]').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('.grid-controls')) return;
+            window.location.href = this.dataset.href;
+        });
+    });
+
     // ===========================
     // Responsive Grid Defaults
     // ===========================
