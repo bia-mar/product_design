@@ -817,28 +817,6 @@ ul, ol {
     margin-top: 0.5rem;
 }
 
-.project-link-section {
-    margin-top: var(--space-md);
-    text-align: left;
-    max-width: var(--content-max);
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.project-external-link {
-    display: inline-block;
-    padding: var(--space-md) var(--space-xl);
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color var(--transition-normal);
-}
-
-.project-external-link:hover {
-    background-color: var(--text-secondary);
-}
-
 /* ===========================
    Card Grids
    =========================== */
@@ -1178,29 +1156,6 @@ ul, ol {
     .images-column figure { height: auto; }
     .images-column img { height: auto; object-fit: initial; }
 
-    /* Stacking: disable on mobile, show as vertical list */
-    .stacking-images ul {
-        grid-template-rows: auto;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        gap: var(--space-xs);
-    }
-
-    .stacking-images ul li {
-        position: relative;
-        padding-top: 0;
-    }
-
-    .stacking-images ul li div {
-        height: auto;
-    }
-
-    /* Lists — better spacing for readability */
-    .project-section li {
-        margin-bottom: 0.6rem;
-        line-height: var(--line-height-relaxed);
-    }
-
     /* Nav arrows */
     .project-nav-arrows { padding: 0 0.75rem; }
     .project-nav-arrow {
@@ -1302,11 +1257,5 @@ ul, ol {
         bottom: var(--space-lg);
         transform: none;
         padding: 0 var(--space-sm);
-    }
-
-    .password-input-inline {
-        max-width: 200px;
-        font-size: var(--font-size-caption);
-        min-height: 28px;
     }
 }
